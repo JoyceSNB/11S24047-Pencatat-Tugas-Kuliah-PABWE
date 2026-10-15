@@ -1,0 +1,113 @@
+:root {
+  --bg: #eef2f6;
+  --surface: #ffffff;
+  --ink: #14213d;
+  --muted: #4a5568;
+  --line: #c5cfdb;
+  --accent: #2b59c3;
+  --accent-ink: #ffffff;
+  --danger: #a61e1e;
+  --done: #2f6f4f;
+  --focus: #e08a00;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 1.5rem 1rem 3rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 1rem/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+main { max-width: 42rem; margin: 0 auto; }
+
+h1 {
+  margin: 0 0 1.25rem;
+  font: 700 2rem/1.15 Georgia, "Times New Roman", serif;
+  letter-spacing: -0.01em;
+}
+
+h2 { margin: 0 0 0.75rem; font-size: 1.125rem; }
+
+section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Form ---------- */
+.grid { display: grid; gap: 1rem; grid-template-columns: 1fr 1fr; }
+.field-wide { grid-column: 1 / -1; }
+@media (max-width: 34rem) { .grid { grid-template-columns: 1fr; } }
+
+label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+.hint { margin: 0 0 0.25rem; font-size: 0.875rem; color: var(--muted); }
+
+input[type="text"], input[type="date"], select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 4px;
+}
+
+input[aria-invalid="true"], select[aria-invalid="true"] { border-color: var(--danger); }
+
+.error { min-height: 0; margin: 0.25rem 0 0; font-size: 0.875rem; font-weight: 600; color: var(--danger); }
+.error:empty { display: none; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+button {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+button:hover { background: #1f45a0; border-color: #1f45a0; }
+
+.actions { margin-top: 1.25rem; }
+
+/* ---------- Ringkasan ---------- */
+.summary { display: flex; gap: 0.75rem; margin: 0; padding: 0; }
+.summary div { flex: 1; padding: 0.75rem; border: 1px solid var(--line); border-radius: 4px; text-align: center; }
+.summary dt { font-size: 0.875rem; color: var(--muted); }
+.summary dd { margin: 0; font: 700 1.75rem/1.2 Georgia, serif; }
+
+/* ---------- Daftar ---------- */
+.task-list { list-style: none; margin: 0; padding: 0; }
+.task {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--line);
+}
+.task:first-child { border-top: 0; }
+.task input[type="checkbox"] { width: 1.5rem; height: 1.5rem; flex: none; accent-color: var(--accent); }
+.task-body { flex: 1; min-width: 0; }
+.task-body label { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+.task-meta { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.task.is-done label { text-decoration: line-through; color: var(--muted); }
+.task.is-done .task-meta::before { content: "Selesai. "; color: var(--done); font-weight: 600; }
+
+.btn-delete { background: #fff; color: var(--danger); border-color: var(--danger); padding: 0.25rem 0.75rem; }
+.btn-delete:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+
+.empty { margin: 0; color: var(--muted); }
+
+.status { margin: 0.75rem 0 0; font-size: 0.875rem; color: var(--muted); min-height: 1.3em; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
