@@ -38,5 +38,5 @@ npm test
 ```
 
 ## Catatan penggunaan AI
-Alat: Claude. Riwayat commit menunjukkan draf awal, temuan pengujian, dan perbaikannya.
-Dokumen proposal lengkap dikumpulkan melalui e-course.
+Alat: Claude. Proses penggunaan AI (prompt, evaluasi kode, kesalahan yang ditemukan, perbaikan, dan keputusan teknis)
+dijelaskan lengkap dalam dokumen proposal yang dikumpulkan melalui e-course.
